@@ -1,0 +1,66 @@
+@use "./src/scss/mixins.scss" as mix;
+@use "./src/scss/variables.scss" as var;
+
+.container {
+  height: 100vh;
+  .textContent {
+    @include mix.flex-center;
+    padding: 1% 0;
+  }
+
+  .containerCards {
+    @include mix.flex-center;
+
+    .cards {
+      @include mix.flex-justify-choose(flex-start);
+      gap: 2%;
+      height: 100%;
+      width: 80%;
+
+      .card {
+        @include mix.flex-align-justify(center, space-around);
+        flex-direction: column;
+        border: #005695 solid 0.2rem;
+        border-radius: 0.5rem;
+        width: 13vw;
+        height: 100%;
+        min-height: 30vh;
+
+        .bookImg {
+          width: 60%;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .bookInfo {
+          @include mix.flex-center;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px){
+  .container{
+    .textContent{
+      h3{
+        font-size: var.$df-font-size-ten;
+      }
+    }
+    .containerCards{
+      .cards{
+        flex-direction: column;
+        .card{
+          width: 100%;
+          min-height: 50vh;
+        }
+        .bookInfo{
+          font-size: var.$df-font-size-four;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+@use "./src/scss/mixins.scss" as mix;
+@use "./src/scss/variables.scss" as var;
+
+header {
+  @include mix.flex-align-justify(center, space-evenly);
+  height: 100%;
+  padding: 1% 1%;
+  background: linear-gradient(to right, #001B2F, #015695);
+
+  .containerLogo {
+    @include mix.flex-align-choose(center);
+    width: 50%;
+
+    h1 {
+      margin-left: 2%;
+      color: var.$df-color-primary;
+      font-size: var.$df-font-size-two;
+    }
+  }
+
+  nav {
+    width: 100%;
+    ul {
+      @include mix.flex-align-justify(center, space-around);
+
+      li {
+        display: inline-block;
+
+        .link {
+          text-decoration: none;
+          color: var.$df-color-primary;
+          font-weight: var.$df-font-weight;
+          font-size: var.$df-font-size-two;
+        }
+      }
+    }
+  }
+
+  .containerSearch {
+    @include mix.flex-justify-choose(center);
+    width: 50%;
+
+    label {
+      @include mix.flex-align-choose(center);
+      width: 80%;
+      border: var.$df-color-primary 0.5vh solid;
+      border-radius: 1.5vh;
+
+      input {
+        color: var.$df-color-primary;
+        width: 100%;
+        background: transparent;
+        border-right: 20px;
+        border: none;
+        padding: 4%;
+        font-size: 1.1rem;
+
+        &::placeholder {
+          color: var.$df-color-primary;
+          border-radius: inherit;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      box-icon {
+        width: 20%;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 700px) {
+  header {
+    height: 18vh;
+    flex-direction: column;
+
+    .containerLogo{
+      @include mix.flex-justify-choose(center);
+      width: 100%;
+      flex-direction: inline-block;
+    }
+
+    .containerSearch{
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@mixin flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-align-justify($align, $justify){
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin flex-align-choose($align){
+    display: flex;
+    align-items: $align;
+}
+
+@mixin flex-justify-choose($justify){
+    display: flex;
+    justify-content: $justify;
+}

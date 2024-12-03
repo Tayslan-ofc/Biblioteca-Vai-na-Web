@@ -1,0 +1,75 @@
+@use "./src/scss/mixins.scss" as mix;
+@use "./src/scss/variables.scss" as var;
+
+.textContent {
+  @include mix.flex-center;
+}
+
+.container {
+  @include mix.flex-align-justify(center,space-evenly);
+  flex-direction: column;
+  height: 100vh;
+
+  .formContainer {
+    @include mix.flex-center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: #005695 solid 0.2rem;
+    min-height: 55vh;
+    width: 20%;
+    border-radius: 1vw;
+    margin-bottom: 3%;
+
+    .bookInformation {
+      @include mix.flex-center;
+      font-size: var.$df-font-size-two;
+      width: 90%;
+    }
+
+    form {
+      height: 100%;
+      width: 100%;
+      @include mix.flex-align-justify(center, space-evenly);
+      flex-direction: column;
+      
+      h3{
+        width: 100%;
+        color: var.$df-color-secondary;
+        text-align: center;
+      }
+
+      input{
+        width: 70%;
+        padding: 1.5%;
+        border-radius: 0.3rem;
+        border: #005695 solid 0.1rem;
+      }
+
+      button{
+        background: #005695;
+        width: 30%;
+        border-radius: 0.3rem;
+        padding: 2.5%;
+        color: var.$df-color-primary;
+        cursor: pointer;
+        border: none;
+        margin-bottom: 3%;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px){
+  .container{
+    .formContainer{
+      width: 70%;
+      border-radius: 5vw;
+      min-height: 50vh;
+    }
+
+    .title{
+      text-align: center;
+      max-width: 80%;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@use "./src/scss/mixins.scss" as mix;
+@use "./src/scss/variables.scss" as var;
+
+.startHome {
+  @include mix.flex-align-choose(center);
+
+  .containerText {
+    @include mix.flex-center;
+    position: absolute;
+
+    h2 {
+      @include mix.flex-center;
+      font-size: var.$df-font-size-five;
+      font-weight: var.$df-font-weight;
+      color: var.$df-color-primary;
+      text-wrap: wrap;
+      width: 80%;
+      text-align: center;
+    }
+  }
+  .startImg {
+    width: 100%;
+    background-image: url("../../../assets/img/imgCentral.png");
+  }
+}
+
+.container {
+  padding: 5%;
+
+  h2 {
+    color: #005695;
+    margin-bottom: 3%;
+  }
+
+  .containerCards {
+    @include mix.flex-justify-choose(space-between);
+    flex-direction: inline-block;
+
+    .card {
+      @include mix.flex-center;
+      flex-direction: column;
+      background: #b3cddf;
+      width: 20%;
+      gap: 1.5vh;
+      padding: 2%;
+      border-radius: 1vw;
+
+      img {
+        width: clamp(0%, 30%, 50%);
+      }
+
+      p {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .startHome {
+    .startImg {
+      height: 30vh;
+    }
+  }
+
+  .container {
+    h2 {
+      text-align: center;
+    }
+
+    .containerCards {
+      @include mix.flex-align-justify(center, space-evenly);
+      flex-direction: column;
+      height: 100vh;
+      .card {
+        width: 80%;
+        border-radius: 3vw;
+
+        p{
+          max-width: 80%;
+        }
+      }
+    }
+  }
+}
